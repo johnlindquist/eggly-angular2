@@ -1,6 +1,6 @@
 import {Component} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {Http} from 'angular2/http';
+import {RouteParams, ROUTER_DIRECTIVES} from 'angular2/router';
 import {CategoriesService} from '../providers/categories-service';
 import {Category} from '../providers/category-model';
 
@@ -8,21 +8,20 @@ import {Category} from '../providers/category-model';
   selector: 'categories',
   providers: [ CategoriesService ],
   directives: [ ROUTER_DIRECTIVES ],
-  pipes: [],
   template: require('./categories.tmpl.html'),
-  styles: [require('./categories.css')]
+  styles: [ require('./categories.css') ]
 })
 
 export class Categories {
-    public categories: Category[];
+  categories: Category[] = undefined;
 
-    constructor(public CategoriesService: CategoriesService) {};
+  constructor(public CategoriesService: CategoriesService) {};
 
-    ngOnInit() {
-        this.CategoriesService.getCategories()
-            .then(
-                (data: Category[]) => this.categories = data,
-                error => console.error(error)
-            );
-    }
+  ngOnInit() {
+    this.CategoriesService.getCategories()
+      .then(
+        (data: Category[]) => this.categories = data,
+        error => console.error(error)
+      );
+  }
 }

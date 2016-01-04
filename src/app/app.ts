@@ -8,28 +8,27 @@ import {BookmarksService} from './providers/bookmarks-service';
 
 @Component({
   selector: 'app',
-  providers: [BookmarksService],
   directives: [ ROUTER_DIRECTIVES, Categories ],
-  pipes: [],
+  providers: [ BookmarksService ],
   template: `
     <main>
-        <div class="container-fluid">
-            <div class="row">
-                <categories></categories>
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <router-outlet></router-outlet>
-                </div>
-            </div>
+      <div class="container-fluid">
+        <div class="row">
+          <categories></categories>
+          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <router-outlet></router-outlet>
+          </div>
         </div>
+      </div>
     </main>
   `,
   styles: [
-      `
-          .main {
-            padding-top: 96px;
-            padding-left: 24px;
-          }
-      `
+    `
+      .main {
+        padding-top: 96px;
+        padding-left: 24px;
+      }
+    `
   ]
 })
 

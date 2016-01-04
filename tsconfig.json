@@ -13,6 +13,10 @@
     "src/vendor.ts",
     "src/app/**/*.ts"
   ],
+  "compileOnSave": false,
+  "atom": {
+    "rewriteTsconfig": true
+  },
   "files": [
     "typings/main.d.ts",
     "src/bootstrap.ts",
@@ -27,9 +31,5 @@
     "src/app/providers/bookmarks-service.ts",
     "src/app/providers/categories-service.ts",
     "src/app/providers/category-model.ts"
-  ],
-  "compileOnSave": false,
-  "atom": {
-    "rewriteTsconfig": true
-  }
+  ]
 }
